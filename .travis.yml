@@ -1,14 +1,14 @@
-language: node_js # node环境
+language: node_js
 node_js:
   - lts/*
 script:
-  - npm run docs:build # 执行命令
+  - npm run docs:build
 deploy:
   provider: pages
   skip-cleanup: true
-  local_dir: docs/.vuepress/dist # 部署的文件夹文件
-  github-token: $GITHUB_TOKEN # travis服务上的token变量
-  target-branch: gh-pages # 集成发布到gh-pages上
+  local_dir: docs/.vuepress/dist
+  github-token: $GITHUB_TOKEN
+  target-branch: gh-pages
   keep-history: true
   on:
     branch: master
