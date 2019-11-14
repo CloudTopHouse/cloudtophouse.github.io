@@ -131,7 +131,7 @@ docker logs gitlab -f
 
 
 
-![img](../assets\16ccdfbe097f02da.jpg)
+![img](../assets/16ccdfbe097f02da.jpg)
 
 
 
