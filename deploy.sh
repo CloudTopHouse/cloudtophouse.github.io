@@ -25,7 +25,7 @@ git commit -m 'deploy'
 
 
 # 如果发布到 https://<USERNAME>.github.io
-# git push -f "https://f8c99d5c12525fc72f04fd4c1d8d6ce71a7b37fc@github.com/CloudTopHouse/cloudtophouse.github.io.git" master:gh-pages
+# git push -f "https://31d8c0e45ca7064d511298d4fe8a0861b47aff20@github.com/CloudTopHouse/cloudtophouse.github.io.git" master:gh-pages
 git push -f git@github.com:cloudtophouse/cloudtophouse.github.io.git master
 
 
