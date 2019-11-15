@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  redis:
+    restart: always
+    image: redis
+    container_name: redis
+    #端口映射
+    ports:
+      - 6379:6379
+    #执行的命令,启动redis服务并添加密码为：123456,并开启redis的持久化
+    command: redis-server --requirepass 123456 --appendonly yes
+    #目录映射
+    volumes:
+      - ./redis/data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf

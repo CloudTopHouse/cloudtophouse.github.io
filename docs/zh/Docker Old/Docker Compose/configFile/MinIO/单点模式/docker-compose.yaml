@@ -1,0 +1,15 @@
+version: '2'
+services:
+  minio:
+    restart: always
+    container_name: minio
+    image: minio/minio:RELEASE.2019-07-17T22-54-12Z
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./minio/data:/data
+      - ./minio/config:/root/.minio
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server /data
