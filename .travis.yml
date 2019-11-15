@@ -11,4 +11,4 @@ deploy:
   target-branch: master
   keep-history: true
   on:
-    branch: gh-pages
+    branch: docs
