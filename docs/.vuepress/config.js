@@ -153,7 +153,7 @@ module.exports = {
 					          '/zh/DevBasic/Git/GitFlow/功能分支工作流',
 					          '/zh/DevBasic/Git/GitFlow/GitFlow 工作流',
 					          '/zh/DevBasic/Git/GitFlow/Forking 工作流',
-					          '/zh/DevBasic/Git/Git/GitFlow/Pull Requests',
+					          '/zh/DevBasic/Git/GitFlow/Pull Requests',
 				          	]
 				        },
 				        {
