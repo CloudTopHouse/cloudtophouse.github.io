@@ -2,4 +2,4 @@
 
 
 
-[![Build Status](https://travis-ci.org/CloudTopHouse/cloudtophouse.github.io.svg?branch=master)](https://travis-ci.org/CloudTopHouse/cloudtophouse.github.io)
+[![Build Status](https://travis-ci.org/CloudTopHouse/cloudtophouse.github.io.svg?branch=docs)](https://travis-ci.org/CloudTopHouse/cloudtophouse.github.io)
