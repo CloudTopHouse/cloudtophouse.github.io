@@ -85,10 +85,11 @@ module.exports = {
 		          { text: '首页', link: '/zh/' },
 	              { text: '指南', link: '/zh/guide/' },
 	              { text: '面试收集', link: '/zh/interview/' },
-	              { text: 'SpringBoot', link: '/zh/SpringBoot/' },
+	              { text: '基础', link: '/zh/DevBasic/' },
+	              { text: '高级', link: '/zh/DevAdvance/' },
+	              { text: '其他', link: '/zh/others/' },
 	              { text: '文章', link: '/zh/article/' },
-	              { text: '关于', link: '/zh/about/' },
-	              { text: 'Changelog', link: '/zh/changelog/' }
+	              { text: '关于', link: '/zh/about/' }
 	        	],
 		        sidebar: {
 		        	// 开发指南
@@ -128,28 +129,166 @@ module.exports = {
 		            	}
 		          	],
 
-		          	// SpringBoot
-				    '/zh/SpringBoot/': [
+					// 基础
+				    '/zh/DevBasic/': [
 				        {
-				        	title: '基础',
+				        	title: 'Git基础',
 				        	children: [
-				              '/zh/SpringBoot/basic/01-第一个 Spring Boot 应用程序',
-				              '/zh/SpringBoot/basic/02-Spring Boot 单元测试',
-					          '/zh/SpringBoot/basic/03-Spring Boot 常用配置',
+				              '/zh/DevBasic/Git/Git/为什么你应该使用Git进行版本控制',
+				              '/zh/DevBasic/Git/Git/为什么需要版本控制',
+					          '/zh/DevBasic/Git/Git/什么是 Git',
+					          '/zh/DevBasic/Git/Git/安装 Git',
+					          '/zh/DevBasic/Git/Git/Git 的一般工作流程',
+					          '/zh/DevBasic/Git/Git/Git 的基本操作',
+					          '/zh/DevBasic/Git/Git/TortoiseGit 简化 Git 操作',
+					          '/zh/DevBasic/Git/Git/快速搭建自己的Git仓库',
+					          '/zh/DevBasic/Git/Git/IDEA中的Git操作',
 				          	]
 				        },
 				        {
-				          title: '整合',
+				        	title: 'GitFlow 工作流指南',
+				        	children: [
+				              '/zh/DevBasic/Git/GitFlow/Git 工作流简介',
+				              '/zh/DevBasic/Git/GitFlow/集中式工作流',
+					          '/zh/DevBasic/Git/GitFlow/功能分支工作流',
+					          '/zh/DevBasic/Git/GitFlow/GitFlow 工作流',
+					          '/zh/DevBasic/Git/GitFlow/Forking 工作流',
+					          '/zh/DevBasic/Git/Git/GitFlow/Pull Requests',
+				          	]
+				        },
+				        {
+				        	title: 'GitLab',
+				        	children: [
+				              '/zh/DevBasic/Git/GitLab/什么是 GitLab',
+				              '/zh/DevBasic/Git/GitLab/基于 Docker 安装 GitLab',
+					          '/zh/DevBasic/Git/GitLab/GitLab 的基本设置',
+					          '/zh/DevBasic/Git/GitLab/GitLab 的账户管理',
+					          '/zh/DevBasic/Git/GitLab/GitLab 创建第一个项目',
+					          '/zh/DevBasic/Git/GitLab/GitLab 使用 SSH 免密登录',
+				          	]
+				        },
+				        {
+				          title: 'Linux系统',
 				          collapsable: true,
 				          children: [
-				            '/zh/SpringBoot/Integration/01-集成Mybatis通用mapper和pagehelper',
-				            '/zh/SpringBoot/Integration/02-全局异常处理',
-					        '/zh/SpringBoot/Integration/03-JSR-303实现请求参数校验',
-					        '/zh/SpringBoot/Integration/04-整合Swagger2生成API文档',
-					        '/zh/SpringBoot/Integration/05-集成JWT实现token验证',
-					        '/zh/SpringBoot/Integration/06-集成定时任务',
-					        '/zh/SpringBoot/Integration/07-集成邮件服务',
+				            '/zh/DevBasic/Linux/01-Linux简介',
+				            '/zh/DevBasic/Linux/02-Linux远程控制管理',
+					        '/zh/DevBasic/Linux/03-Linux目录管理',
+					        '/zh/DevBasic/Linux/04-Linux系统管理',
+					        '/zh/DevBasic/Linux/05-Linux Vim编辑器',
+					        '/zh/DevBasic/Linux/06-Linux用户和组管理',
+					        '/zh/DevBasic/Linux/07-Linux文件权限管理',
+					        '/zh/DevBasic/Linux/08-Linux软件包管理',
+					        '/zh/DevBasic/Linux/09-Linux部署应用程序',
+					        '/zh/DevBasic/Linux/10-Linux LVM磁盘扩容',
 				          ]
+				        }
+				    ],
+
+		          	// 高级
+				    '/zh/DevAdvance/': [
+				        {
+				        	title: 'SpringBoot基础',
+				        	children: [
+				              '/zh/DevAdvance/SpringBoot/basic/01-第一个 Spring Boot 应用程序',
+				              '/zh/DevAdvance/SpringBoot/basic/02-Spring Boot 单元测试',
+					          '/zh/DevAdvance/SpringBoot/basic/03-Spring Boot 常用配置',
+				          	]
+				        },
+				        {
+				          title: 'SpringBoot整合',
+				          collapsable: true,
+				          children: [
+				            '/zh/DevAdvance/SpringBoot/Integration/01-集成Mybatis通用mapper和pagehelper',
+				            '/zh/DevAdvance/SpringBoot/Integration/02-全局异常处理',
+					        '/zh/DevAdvance/SpringBoot/Integration/03-JSR-303实现请求参数校验',
+					        '/zh/DevAdvance/SpringBoot/Integration/04-整合Swagger2生成API文档',
+					        '/zh/DevAdvance/SpringBoot/Integration/05-集成JWT实现token验证',
+					        '/zh/DevAdvance/SpringBoot/Integration/06-集成定时任务',
+					        '/zh/DevAdvance/SpringBoot/Integration/07-集成邮件服务',
+				          ]
+				        },
+				        {
+				        	title: '编程方法论',
+				        	children: [
+				              '/zh/DevAdvance/ProgramMethodology/01-敏捷宣言',
+				              '/zh/DevAdvance/ProgramMethodology/02-敏捷开发',
+					          '/zh/DevAdvance/ProgramMethodology/03-极限编程',
+					          '/zh/DevAdvance/ProgramMethodology/04-微服务十二要素宣言',
+					          '/zh/DevAdvance/ProgramMethodology/05-无状态应用',
+					          '/zh/DevAdvance/ProgramMethodology/06-轻应用',
+					          '/zh/DevAdvance/ProgramMethodology/07-禅道简介',
+					          '/zh/DevAdvance/ProgramMethodology/08-安装禅道',
+				          	]
+				        },
+				        {
+				        	title: '微服务',
+				        	children: [
+				              '/zh/DevAdvance/MicroService/01-构建单体应用模型',
+				              '/zh/DevAdvance/MicroService/02-走向单体地狱',
+					          '/zh/DevAdvance/MicroService/03-微服务解决复杂问题',
+					          '/zh/DevAdvance/MicroService/04-微服务的优点',
+					          '/zh/DevAdvance/MicroService/05-微服务的缺点',
+					          '/zh/DevAdvance/MicroService/06-CAP定理与BASE理论',
+					          '/zh/DevAdvance/MicroService/07-如何应对高并发',
+					          '/zh/DevAdvance/MicroService/08-微服务的概念',
+					          '/zh/DevAdvance/MicroService/09-微服务的实践',
+					          '/zh/DevAdvance/MicroService/10-微服务设计模式',
+				          	]
+				        },
+				        {
+				        	title: 'Docker容器',
+				        	children: [
+				              '/zh/DevAdvance/Docker/Docker/Docker简介',
+				              '/zh/DevAdvance/Docker/Docker/安装Docker',
+					          '/zh/DevAdvance/Docker/Docker/Docker 概述',
+					          '/zh/DevAdvance/Docker/Docker/Docker 操作镜像',
+					          '/zh/DevAdvance/Docker/Docker/Docker 操作容器',
+					          '/zh/DevAdvance/Docker/Dockerfile/Dockerfile 定制镜像',
+					          '/zh/DevAdvance/Docker/Dockerfile/Dockerfile 指令',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 简介',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 使用',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署应用程序',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 GitLab',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Nexus',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Harbor',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 网络设置',
+				          	]
+				        },
+				        {
+				        	title: 'Kubernetes',
+				        	children: [
+				              '/zh/DevAdvance/Kubernetes/01-Kubernetes 简介',
+				              '/zh/DevAdvance/Kubernetes/02-Kubernetes 安装前的准备',
+					          '/zh/DevAdvance/Kubernetes/03-Kubernetes 安装集群',
+					          '/zh/DevAdvance/Kubernetes/04-Kubernetes 配置网络',
+					          '/zh/DevAdvance/Kubernetes/05-Kubernetes 第一个容器',
+					          '/zh/DevAdvance/Kubernetes/06-Kubernetes 概念总结',
+					          '/zh/DevAdvance/Kubernetes/07-Kubernetes 通过资源配置运行容器',
+					          '/zh/DevAdvance/Kubernetes/08-Kubernetes Ingress简介',
+					          '/zh/DevAdvance/Kubernetes/09-Nginx 虚拟主机',
+					          '/zh/DevAdvance/Kubernetes/10-Nginx 反向代理',
+					          '/zh/DevAdvance/Kubernetes/11-Nginx 负载均衡',
+					          '/zh/DevAdvance/Kubernetes/12-Nginx Ingress Controller',
+					          '/zh/DevAdvance/Kubernetes/13-Kubernetes 准备数据卷',
+					          '/zh/DevAdvance/Kubernetes/14-Kubernetes 使用数据卷',
+					          '/zh/DevAdvance/Kubernetes/15-Kubernetes ConfigMap',
+					          '/zh/DevAdvance/Kubernetes/16-Kubernetes Dashboard',
+				          	]
+				        },
+				    ],
+
+				    // 其他
+				    '/zh/others/': [
+				        {
+				        	title: '第一部分',
+				        	children: [
+				              '/zh/others/Chapter1/简话开源协议',
+				              '/zh/others/Chapter1/论「版本号」的正确使用方式',
+				              '/zh/others/Chapter1/解决跨域问题',
+				              '/zh/others/Chapter1/使用Gitbook+Markdown编写电子文档',
+				              '/zh/others/Chapter1/VuePress与Github Pages搭配完成线上站点',
+				          	]
 				        }
 				    ],
 
@@ -167,6 +306,17 @@ module.exports = {
 				          children: [
 				            '/zh/article/如何依靠副业赚钱',
 				          ]
+				        }
+				    ],
+
+				    //关于
+				    '/zh/about/': [
+				        {
+				        	title: '关于',
+				        	children: [
+				              '/zh/about/',
+				              '/zh/about/changelog'				              
+				          	]
 				        }
 				    ],
 
