@@ -288,6 +288,7 @@ module.exports = {
 				              '/zh/others/Chapter1/解决跨域问题',
 				              '/zh/others/Chapter1/使用Gitbook+Markdown编写电子文档',
 				              '/zh/others/Chapter1/VuePress与Github Pages搭配完成线上站点',
+				              '/zh/others/Chapter1/深入 OAuth2.0 和 JWT',
 				          	]
 				        }
 				    ],
