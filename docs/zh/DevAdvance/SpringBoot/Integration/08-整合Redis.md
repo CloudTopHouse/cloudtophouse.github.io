@@ -1,16 +1,16 @@
 # 08-整合Redis
 
-在 Redis 出现之前，我们的缓存框架各种各样，有了 Redis ，缓存方案基本上都统一了，关于 Redis，这里有一个系列教程，尚不了解 Redis 的小伙伴可以参考这个教程：
+在 Redis 出现之前，我们的缓存框架各种各样，有了 Redis ，缓存方案基本上都统一了。
 
-- [Redis 教程合集](https://mp.weixin.qq.com/s/0Bukv4bFGMWosG8SWWoDDw)
+关于 Redis，这里有一个系列教程，尚不了解 Redis 的小伙伴可以参考这个教程：[Redis 教程合集](https://mp.weixin.qq.com/s/0Bukv4bFGMWosG8SWWoDDw)
 
 使用 Java 操作 Redis 的方案很多，Jedis 是目前较为流行的一种方案，除了 Jedis ，还有很多其他解决方案，如下：
 
 
 
-![img](https://user-gold-cdn.xitu.io/2019/11/23/16e95e0e3982fc70?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e95e0e3982fc70.jpg)
 
-## Spring Boot 中常用Redis操作方案
+## 一、Spring Boot 中常用Redis操作方案
 
 **1. Spring Data Redis（推荐）**
 
@@ -35,7 +35,7 @@
 
 
 
-## 集成 Spring Data Redis
+## 二、集成 Spring Data Redis
 
 在 Spring Boot 中，默认集成的 Redis 就是 Spring Data Redis，默认底层的连接池使用了 lettuce ，开发者可以自行修改为自己的熟悉的，例如 Jedis。
 
@@ -158,11 +158,9 @@ Redis 中的数据操作，大体上来说，可以分为两种：
 1. 针对 key 的操作，相关的方法就在 RedisTemplate 中
 2. 针对具体数据类型的操作，相关的方法需要首先获取对应的数据类型，获取相应数据类型的操作方法是 opsForXXX
 
-调用该方法就可以将数据存储到 Redis 中去了，执行代码后结果如下：
+调用该方法就可以将数据存储到 Redis 中去了，执行代码后，我们看一下redis：
 
-看一下redis：
-
-![img](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1ac2f70cda?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1ac2f70cda.jpg)
 
 
 
@@ -170,11 +168,11 @@ Redis 中的数据操作，大体上来说，可以分为两种：
 
 默认的存储方式导致 key 在Redis-Manager里面显示出来是乱码的，并且存储结果(value)是二进制了。这样不利于我们查看redis里面的数据。
 
-为什么会出现这个问题呢？
-
-在 RedisTemplate 中，key 默认的序列化方案是`JdkSerializationRedisSerializer` 。
-而在 StringRedisTemplate 中，key 默认的序列化方案是 `StringRedisSerializer`。
-因此，如果使用 StringRedisTemplate，默认情况下 key 前面不会有前缀。
+> 为什么会出现这个问题呢？
+>
+> 在 RedisTemplate 中，key 默认的序列化方案是`JdkSerializationRedisSerializer` 。
+> 而在 StringRedisTemplate 中，key 默认的序列化方案是 `StringRedisSerializer`。
+> 因此，如果使用 StringRedisTemplate，默认情况下 key 前面不会有前缀。
 
 不过开发者也可以自行修改 RedisTemplate 中的序列化方案，如下:
 
@@ -207,7 +205,7 @@ public class RedisTest {
 public class RedisTest {
 
     @Autowired
-    StringRedisTemplate stringRedisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
     
     @Test
     public void hello2() {
@@ -222,7 +220,9 @@ public class RedisTest {
 }
 ```
 
-> 另外需要注意，Spring Boot 的自动化配置，只能配置单机的 Redis。如果是 Redis 集群，则所有的东西都需要自己手动配置，关于如何操作 Redis 集群，以后再来和大家分享。
+> 另外需要注意的是，Spring Boot 的自动化配置，只能配置单机的 Redis。如果是 Redis 集群，则所有的东西都需要自己手动配置。
+>
+> 关于如何操作 Redis 集群，以后再来和大家分享。
 
 
 
@@ -298,24 +298,22 @@ public class RedisConfig {
 
 删除之前的key，重新执行一下test方法：
 
-![img](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1aebb897ed?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1aebb897ed.jpg)
 
 
 
 
 
-下面来演示一下SpringBoot使用RedisTemplate进行redis数据的操作
+下面来演示一下SpringBoot使用RedisTemplate进行redis数据的操作。
 
 
 
 
-## 数据操作—key/list/hash
+## 三、数据操作(key/list/hash)
 
 RedisTemplate内置redis操作如下：
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1b109a6108?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1b109a6108.jpg)
 
 
 
@@ -354,9 +352,7 @@ public void testKeyOps() {
 
 执行结果：
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1b3c1879a5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1b3c1879a5.jpg)
 
 
 
@@ -364,7 +360,7 @@ redis中的数据：
 
 
 
-![img](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1b63fc55f4?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1b63fc55f4.jpg)
 
 
 
@@ -402,13 +398,13 @@ public void testHashOps() {
 
 
 
-![file](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1b898880ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1b898880ea.jpg)
 
 
 
 redis:
 
-![file](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1bae0295de?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1bae0295de.jpg)
 
 
 
@@ -444,25 +440,19 @@ public void testListOps() {
 
 执行上面的脚本，注意在最后的读取list数据代码前面加一个断点，此时redis中是这样的：
 
-
-
-![file](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1bd9965ad9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1bd9965ad9.jpg)
 
 
 
 放开断点，程序继续执行，控制台如下：
 
-
-
-![file](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1bfeb69ce7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1bfeb69ce7.jpg)
 
 
 
 注意，此时redis中仅剩余最后一条数据，这是由于pop的问题，list中的数据被读取并删除了：
 
-
-
-![file](https://user-gold-cdn.xitu.io/2019/11/7/16e45b1c254c8a4f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16e45b1c254c8a4f.jpg)
 
 
 
