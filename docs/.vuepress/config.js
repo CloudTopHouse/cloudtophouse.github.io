@@ -87,6 +87,7 @@ module.exports = {
 	              { text: '面试收集', link: '/zh/interview/' },
 	              { text: '基础', link: '/zh/DevBasic/' },
 	              { text: '高级', link: '/zh/DevAdvance/' },
+	              { text: '前端', link: '/zh/Frontend/' },
 	              { text: '其他', link: '/zh/others/' },
 	              { text: '文章', link: '/zh/article/' },
 	              { text: '关于', link: '/zh/about/' }
@@ -277,6 +278,16 @@ module.exports = {
 					          '/zh/DevAdvance/Kubernetes/16-Kubernetes Dashboard',
 				          	]
 				        },
+				    ],
+
+				    // 前端
+				    '/zh/Frontend/': [
+				        {
+				        	title: 'Vue',
+				        	children: [
+				              '/zh/Frontend/Vue/01-Vue介绍',
+				          	]
+				        }
 				    ],
 
 				    // 其他
