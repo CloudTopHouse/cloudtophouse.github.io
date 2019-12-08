@@ -254,6 +254,7 @@ module.exports = {
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 GitLab',
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Nexus',
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Harbor',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Portainer',
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 网络设置',
 				          	]
 				        },

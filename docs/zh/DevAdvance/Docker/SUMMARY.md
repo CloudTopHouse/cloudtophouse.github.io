@@ -16,6 +16,7 @@
     * [Docker Compose 部署应用程序](Docker Compose/Docker Compose 部署应用程序.md)
     * [Docker Compose 部署 GitLab](Docker Compose/Docker Compose 部署 GitLab.md)
     * [Docker Compose 部署 Nexus](Docker Compose/Docker Compose 部署 Nexus.md)
+    * [Docker Compose 部署  Portainer](Docker Compose/Docker Compose 部署 Portainer.md)
     * [Docker Compose 部署 Harbor](Docker Compose/Docker Compose 部署 Harbor.md)
     * [Docker Compose 网络设置](Docker Compose/Docker Compose 网络设置.md)
 
