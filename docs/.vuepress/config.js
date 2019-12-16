@@ -208,6 +208,8 @@ module.exports = {
 					        '/zh/DevAdvance/SpringBoot/Integration/06-集成定时任务',
 					        '/zh/DevAdvance/SpringBoot/Integration/07-集成邮件服务',
 					        '/zh/DevAdvance/SpringBoot/Integration/08-整合Redis',
+					        '/zh/DevAdvance/SpringBoot/Integration/09-整合阿里云短信',
+					        '/zh/DevAdvance/SpringBoot/Integration/10-整合SpringSecurity实现权限注解+JWT登录认证',
 				          ]
 				        },
 				        {
