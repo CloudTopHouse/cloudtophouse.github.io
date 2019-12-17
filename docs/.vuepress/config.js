@@ -169,6 +169,12 @@ module.exports = {
 				          	]
 				        },
 				        {
+				        	title: 'Maven',
+				        	children: [
+				              '/zh/DevBasic/Maven/01-Maven入门上手',
+				          	]
+				        },
+				        {
 				          title: 'Linux系统',
 				          collapsable: true,
 				          children: [
