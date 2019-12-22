@@ -39,17 +39,13 @@ Maven 中的有两大核心：
 
 下载地址：[maven.apache.org/download.cg…](http://maven.apache.org/download.cgi)
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a141d15ed2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a141d15ed2.png)
 
 
 
 - 解压并配置
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a142fd8ee2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a142fd8ee2.png)
 
 
 
@@ -57,29 +53,25 @@ Maven 中的有两大核心：
 
 首先配置 MAVEN_HOME:
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a1431e2aff?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a1431e2aff.png)
 
 
 
 然后配置环境变量：
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a1455f857a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a1455f857a.png)
 
 
 
 - 检验安装
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a147c2f35b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a147c2f35b.png)
 
 
 
 > 如果使用了 IntelliJ IDEA ，可以不用去额外下载 Maven，直接使用 IDEA 中自带的 Maven 插件即可。IntelliJ IDEA 中自带的 Maven 插件在 `\ideaIU-2019.2.4.win\plugins\maven\lib\maven3`
+
+
 
 ## 3. Maven 配置
 
@@ -95,9 +87,7 @@ Maven 中的有两大核心：
 
 现在存在 3 个仓库，那么 jar 包如何查找呢？
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a16833453e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a16833453e.png)
 
 
 
@@ -112,7 +102,7 @@ Maven 中的有两大核心：
 
 
 
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a168956293?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a168956293.png)
 
 
 
@@ -120,21 +110,18 @@ Maven 中的有两大核心：
 
 由于默认的中央仓库下载较慢，因此，也可以将远程仓库地址改为阿里巴巴的仓库地址：
 
-```
+```xml
 <mirror>
         <id>nexus-aliyun</id>
         <mirrorOf>central</mirrorOf>
         <name>Nexus aliyun</name>
         <url>http://maven.aliyun.com/nexus/content/groups/public</url>
 </mirror>
-复制代码
 ```
 
 这段配置，加在 settings.xml 中的 mirrors 节点中：
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a16c85d328?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a16c85d328.png)
 
 
 
@@ -157,9 +144,7 @@ Maven 中有一些常见的命令，如果使用  Eclipse 需要手动敲命令�
 
 当然，如果开发者使用了 IDEA ，这些命令不用手动敲，点一下就行：
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/16/16f0c8a16da5d9c9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](./assets/16f0c8a16da5d9c9.png)
 
 
 
@@ -278,9 +263,7 @@ IDEA 中，Maven 的配置在 `File->Settings->Build,Execution,Deployment->Build
 
 填完之后，直接 Next 即可。这样，我们就会获取一个 JavaSE 工程，项目结构和你用命令创建出来的项目一模一样。
 
-
-
-![img](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="330" height="215"></svg>)
+、=2645555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555、、[img](d=ta:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="330" height="215"></svg>)
 
 
 
