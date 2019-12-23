@@ -172,6 +172,7 @@ module.exports = {
 				        	title: 'Maven',
 				        	children: [
 				              '/zh/DevBasic/Maven/01-Maven入门上手',
+				              '/zh/DevBasic/Maven/02-使用 Maven 管理 Spring Boot Profile',
 				          	]
 				        },
 				        {
