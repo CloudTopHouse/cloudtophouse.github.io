@@ -287,6 +287,15 @@ module.exports = {
 					          '/zh/DevAdvance/Kubernetes/16-Kubernetes Dashboard',
 				          	]
 				        },
+				        {
+				        	title: '解决方案',
+				        	children: [
+				              '/zh/DevAdvance/Solution/login/01-从零开始设计一个登录系统',
+				              '/zh/DevAdvance/Solution/login/02-关于用户系统中第三方登录的设计',
+					          '/zh/DevAdvance/Solution/login/03-第三方账号登录',
+					          '/zh/DevAdvance/Solution/login/04-Spring Boot 快速集成第三方登录功能',
+				          	]
+				        },
 				    ],
 
 				    // 前端
