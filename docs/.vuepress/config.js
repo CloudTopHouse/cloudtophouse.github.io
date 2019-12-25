@@ -133,6 +133,19 @@ module.exports = {
 					// 基础
 				    '/zh/DevBasic/': [
 				        {
+				        	title: 'Java基础',
+				        	children: [
+				              '/zh/DevBasic/Java/other/Lombok 学习指南',
+				          	]
+				        },
+				        {
+				        	title: 'Java其他',
+				        	children: [
+				              '/zh/DevBasic/Java/other/Lombok 学习指南',
+				              '/zh/DevBasic/Java/other/日志规范',
+				          	]
+				        },
+				        {
 				        	title: 'Git基础',
 				        	children: [
 				              '/zh/DevBasic/Git/Git/为什么你应该使用Git进行版本控制',
