@@ -33,4 +33,13 @@
     * [05-集成JWT实现token验证](Integration/05-集成JWT实现token验证.md)
     * [06-集成定时任务](Integration/06-集成定时任务.md)
     * [07-集成邮件服务](Integration/07-集成邮件服务.md)
+    * [08-整合Redis](Integration/08-整合Redis.md)
+    * [09-整合阿里云短信](Integration/09-整合阿里云短信.md)
+    * [10-整合SpringSecurity实现权限注解+JWT登录认证](Integration/10-整合SpringSecurity实现权限注解+JWT登录认证.md)
+    * [11-整合SpringRetry](Integration/11-整合SpringRetry.md)
+* Spring Boot 整合 SpringSecurity 学习笔记
+      * [01-SpringSecurity自定义基本使用及个性化登录配置](SpringSecurity/01-SpringSecurity自定义基本使用及个性化登录配置.md)
+      * [02-自定义基本使用及个性化登录配置](SpringSecurity/01-自定义基本使用及个性化登录配置.md)
+      * [03-自定义基本使用及个性化登录配置](SpringSecurity/01-自定义基本使用及个性化登录配置.md)
+      * [04-自定义基本使用及个性化登录配置](SpringSecurity/01-自定义基本使用及个性化登录配置.md)
 
