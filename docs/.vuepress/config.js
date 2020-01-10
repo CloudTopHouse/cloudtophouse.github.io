@@ -186,6 +186,7 @@ module.exports = {
 				        	children: [
 				              '/zh/DevBasic/Maven/01-Maven入门上手',
 				              '/zh/DevBasic/Maven/02-使用 Maven 管理 Spring Boot Profile',
+				              '/zh/DevBasic/Maven/03-使用Maven BOM来管理你的版本依赖',
 				          	]
 				        },
 				        {
