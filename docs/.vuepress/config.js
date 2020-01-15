@@ -88,7 +88,7 @@ module.exports = {
 	              { text: '基础', link: '/zh/DevBasic/' },
 	              { text: '高级', link: '/zh/DevAdvance/' },
 	              { text: '前端', link: '/zh/Frontend/' },
-	              { text: '其他', link: '/zh/others/' },
+	              { text: '开发杂谈', link: '/zh/devOthers/' },
 	              { text: '文章', link: '/zh/article/' },
 	              { text: '关于', link: '/zh/about/' }
 	        	],
@@ -331,17 +331,17 @@ module.exports = {
 				        }
 				    ],
 
-				    // 其他
-				    '/zh/others/': [
+				    // 开发杂谈
+				    '/zh/devOthers/': [
 				        {
 				        	title: '第一部分',
 				        	children: [
-				              '/zh/others/Chapter1/简话开源协议',
-				              '/zh/others/Chapter1/论「版本号」的正确使用方式',
-				              '/zh/others/Chapter1/解决跨域问题',
-				              '/zh/others/Chapter1/使用Gitbook+Markdown编写电子文档',
-				              '/zh/others/Chapter1/VuePress与Github Pages搭配完成线上站点',
-				              '/zh/others/Chapter1/深入 OAuth2.0 和 JWT',
+				              '/zh/DevOthers/Chapter1/01-简话开源协议',
+				              '/zh/DevOthers/Chapter1/02-论「版本号」的正确使用方式',
+				              '/zh/DevOthers/Chapter1/03-解决跨域问题',
+				              '/zh/DevOthers/Chapter1/04-深入 OAuth2.0 和 JWT',
+				              '/zh/DevOthers/Chapter1/05-使用Gitbook+Markdown编写电子文档',
+				              '/zh/DevOthers/Chapter1/06-VuePress与Github Pages搭配完成线上站点',
 				          	]
 				        }
 				    ],
