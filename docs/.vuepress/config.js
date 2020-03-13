@@ -343,6 +343,12 @@ module.exports = {
 				              '/zh/DevOthers/Chapter1/05-使用Gitbook+Markdown编写电子文档',
 				              '/zh/DevOthers/Chapter1/06-VuePress与Github Pages搭配完成线上站点',
 				          	]
+				        },
+				        {
+				        	title: '第三方云服务',
+				        	children: [
+				              '/zh/DevOthers/CloudService/七牛云图床搭建',
+				          	]
 				        }
 				    ],
 
