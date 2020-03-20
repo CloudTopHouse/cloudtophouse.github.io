@@ -88,7 +88,7 @@ module.exports = {
 	              { text: '基础', link: '/zh/DevBasic/' },
 	              { text: '高级', link: '/zh/DevAdvance/' },
 	              { text: '前端', link: '/zh/Frontend/' },
-	              { text: '开发杂谈', link: '/zh/devOthers/' },
+	              { text: '开发杂谈', link: '/zh/DevOthers/' },
 	              { text: '文章', link: '/zh/article/' },
 	              { text: '关于', link: '/zh/about/' }
 	        	],
@@ -332,7 +332,7 @@ module.exports = {
 				    ],
 
 				    // 开发杂谈
-				    '/zh/devOthers/': [
+				    '/zh/DevOthers/': [
 				        {
 				        	title: '第一部分',
 				        	children: [
