@@ -88,7 +88,7 @@ module.exports = {
 	              { text: '基础', link: '/zh/DevBasic/' },
 	              { text: '高级', link: '/zh/DevAdvance/' },
 	              { text: '前端', link: '/zh/Frontend/' },
-	              { text: '开发杂谈', link: '/zh/devOthers/' },
+	              { text: '开发杂谈', link: '/zh/DevOthers/' },
 	              { text: '文章', link: '/zh/article/' },
 	              { text: '关于', link: '/zh/about/' }
 	        	],
@@ -332,7 +332,7 @@ module.exports = {
 				    ],
 
 				    // 开发杂谈
-				    '/zh/devOthers/': [
+				    '/zh/DevOthers/': [
 				        {
 				        	title: '第一部分',
 				        	children: [
@@ -342,6 +342,12 @@ module.exports = {
 				              '/zh/DevOthers/Chapter1/04-深入 OAuth2.0 和 JWT',
 				              '/zh/DevOthers/Chapter1/05-使用Gitbook+Markdown编写电子文档',
 				              '/zh/DevOthers/Chapter1/06-VuePress与Github Pages搭配完成线上站点',
+				          	]
+				        },
+				        {
+				        	title: '第三方云服务',
+				        	children: [
+				              '/zh/DevOthers/CloudService/七牛云图床搭建',
 				          	]
 				        }
 				    ],
