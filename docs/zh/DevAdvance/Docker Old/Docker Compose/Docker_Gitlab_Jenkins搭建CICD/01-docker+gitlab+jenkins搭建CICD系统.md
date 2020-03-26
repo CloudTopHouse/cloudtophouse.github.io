@@ -141,7 +141,7 @@ gitlab正常使用可以参考网上其他的资料，主要是用户，组及�
 ```bash
 # /data/jenkins 是自定义映射jenkins存放数据的目录，可以修改成自己需要的目录，docker的映射是为了让jenkins能使用宿主环境下的docker
 cat > docker-compose.yml << EOF
-version: '2'
+version: '3.1'
 services:
   jenkins:
     image: jenkins/jenkins:lts
@@ -157,7 +157,7 @@ services:
 EOF
 
 # 后台启动服务，第一次或自动pull镜像，添加 -d 表示后台启动，可以添加这个参数用于后台启动
-docker-compose up
+docker-compose up -d
 ```
 
 #### 使用jenkins

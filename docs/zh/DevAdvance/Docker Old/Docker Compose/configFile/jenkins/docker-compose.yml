@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: always
+    user: root
+    container_name: jenkins
+    ports:
+      - "8002:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/data/jenkins:/var/jenkins_home"
+      - "/usr/bin/docker:/usr/bin/docker"   
