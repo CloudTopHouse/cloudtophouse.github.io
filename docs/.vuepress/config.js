@@ -235,6 +235,18 @@ module.exports = {
 				          ]
 				        },
 				        {
+				          title: 'SpringSecurity',
+				          collapsable: true,
+				          children: [
+				            '/zh/DevAdvance/SpringBoot/SpringSecurity/01-SpringSecurity自定义基本使用及个性化登录配置',
+				            '/zh/DevAdvance/SpringBoot/SpringSecurity/02-SpringSecurity安全认证流程源码详解',
+					        '/zh/DevAdvance/SpringBoot/SpringSecurity/03-SpringSecurity实现图片验证码认证',
+					        '/zh/DevAdvance/SpringBoot/SpringSecurity/04-SpringSecurity记住我功能实现',
+					        '/zh/DevAdvance/SpringBoot/SpringSecurity/05-实现短信验证码+登录功能',
+					        '/zh/DevAdvance/SpringBoot/SpringSecurity/SpringSecurity OAuth2.0认证授权',
+				          ]
+				        },
+				        {
 				        	title: '编程方法论',
 				        	children: [
 				              '/zh/DevAdvance/ProgramMethodology/01-敏捷宣言',
