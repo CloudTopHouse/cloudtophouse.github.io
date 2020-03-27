@@ -26,18 +26,58 @@ services:
     volumes:
       - data:/nexus-data
 volumes:
-  data:
+  data: 
 ```
+
+> **注意：**这种方式是进行了数据卷映射，映射的宿主机目录为： `/var/lib/docker/volumes/nexus_data`。
+>
+> 所以如果需要查找数据，就去该目录下查找。
+
+另一种设置数据卷的方式如下，直接指定宿主机的映射目录：
+
+```yaml
+version: '3.1'
+services:
+  nexus:
+    restart: always
+    image: sonatype/nexus3
+    container_name: nexus
+    ports:
+      - 80:8081
+    volumes:
+      - ./nexus3/data/:/nexus-data
+      - ./nexus3/log/:/nexus-data/log/
+```
+
+>**说明:** 执行 `docker-compose up -d` 命令，会根据 docker-compose.yml 的内容去获取镜像启动容器。**可能过程中会遇到权限问题!!**
+>
+>通过 `chmod -R 777 nexus3/` 命令去给nexus3目录以及其子目录授权。授权后再去执行一 遍 `docker-compose up -d`  命令即可。
+
+
+
+配置好docker-compose.yml文件后，将该文件放到宿主机上的相应目录下，然后通过 `docker-compose up -d` 命令去运行。
+
+
+
+
 
 ## 验证安装是否成功
 
 - **地址：** [http://ip:port/](http://qfdmy.com/wp-content/themes/quanbaike/go.php?url=aHR0cDovL2lwOnBvcnQv)
 - **用户名：** admin
-- **密码：** admin123
+- **密码：** [在宿主机映射的data数据卷中的 `admin.password`  文件中]
 
-> **注意：** 新版本密码在 `cat /var/lib/docker/volumes/nexus_data/_data/admin.password`
+> **注意：** 
+>
+> 如果是第一种数据卷映射的方式，则密码在 `/var/lib/docker/volumes/nexus_data/_data/admin.password` 目录下的admin.password 文件中。
+>
+> 如果是第二种直接指定宿主机的目录，则密码在
+>
+> `./nexus3/data` 目录下的admin.password 文件中。
 
 ![img](../assets/7d15eefb5020544.png)
+
+
 
 ## Maven 仓库介绍
 
@@ -71,6 +111,8 @@ volumes:
 
 - **maven-public**
 - **nuget-group**
+
+
 
 ## 在项目中使用 Nexus
 
@@ -168,6 +210,10 @@ mvn deploy
     </pluginRepository>
 </pluginRepositories>
 ```
+
+
+
+
 
 ## 扩展阅读
 
