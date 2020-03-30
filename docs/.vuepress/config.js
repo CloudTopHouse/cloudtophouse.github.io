@@ -360,6 +360,7 @@ module.exports = {
 				        	title: '第三方云服务',
 				        	children: [
 				              '/zh/DevOthers/CloudService/七牛云图床搭建',
+				              '/zh/DevOthers/CloudService/短信云服务',
 				          	]
 				        }
 				    ],
