@@ -1,8 +1,8 @@
 module.exports = {
     // 这是部署到github相关的配置	
     base: '/',
-    title: '山河社稷图',
-    description: 'ShanHeSheJiTu',
+    title: '云顶轩',
+    description: 'YunDingXuan',
     // 注入到当前页面的 HTML <head> 中的标签
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
@@ -18,13 +18,13 @@ module.exports = {
         // 作为特例，默认语言可以使用 '/' 作为其路径。
         '/': {
           lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
-          title: '山河社稷图',
-          description: 'Vue-powered Static Site Generator'
+          title: '云顶轩',
+          description: '记录点滴足迹,留下美好时光'
         },
         '/zh/': {
           lang: 'zh-CN',
-          title: '山河社稷图',
-          description: '学习笔记'
+          title: '云顶轩',
+          description: '记录点滴足迹,留下美好时光'
         }
     },       
     themeConfig: {
@@ -84,11 +84,11 @@ module.exports = {
 		        nav: [
 		          { text: '首页', link: '/zh/' },
 	              { text: '指南', link: '/zh/guide/' },
-	              { text: '面试收集', link: '/zh/interview/' },
+	              { text: '面试', link: '/zh/interview/' },
 	              { text: '基础', link: '/zh/DevBasic/' },
 	              { text: '高级', link: '/zh/DevAdvance/' },
 	              { text: '前端', link: '/zh/Frontend/' },
-	              { text: '开发杂谈', link: '/zh/DevOthers/' },
+	              { text: '杂谈', link: '/zh/DevOthers/' },
 	              { text: '文章', link: '/zh/article/' },
 	              { text: '关于', link: '/zh/about/' }
 	        	],
@@ -290,6 +290,8 @@ module.exports = {
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 GitLab',
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Nexus',
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Harbor',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Redis',
+					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Nginx',
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 部署 Portainer',
 					          '/zh/DevAdvance/Docker/Docker Compose/Docker Compose 网络设置',
 				          	]
