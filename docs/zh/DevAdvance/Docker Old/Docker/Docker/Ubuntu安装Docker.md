@@ -94,7 +94,7 @@ $ sudo sh get-docker.sh --mirror Aliyun
 
 ### 特别说明
 
-2018 年 7 月 21 日，貌似阿里云这边在做调整，故导致 Docker 的 Aliyun 安装脚本不可用，是永久性还是临时性的尚不清除，如果你已经按照之前的操作安装 Docker，请按以下步骤进行修复并重新安装
+2018 年 7 月 21 日，貌似阿里云这边在做调整，故导致 Docker 的 Aliyun 安装脚本不可用，是永久性还是临时性的尚不清楚。如果你已经按照之前的操作安装 Docker，请按以下步骤进行修复并重新安装
 
 - 如果已经使用了 Aliyun 脚本安装并成功的
   - 请先卸载 Docker，命令为：`apt-get autoremove docker-ce`

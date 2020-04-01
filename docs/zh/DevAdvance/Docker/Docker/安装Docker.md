@@ -1,6 +1,8 @@
 # 安装Docker
 
-## 平台支持
+
+
+## Docker 平台支持
 
 Docker CE 支持多种平台，如下表所示
 
@@ -20,13 +22,17 @@ Docker CE 支持多种平台，如下表所示
 | [Fedora](http://qfdmy.com/wp-content/themes/quanbaike/go.php?url=aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vaW5zdGFsbC9saW51eC9kb2NrZXItY2UvZmVkb3JhLw==) | ✔              |      | ✔               |                     |               |
 | [Ubuntu](http://qfdmy.com/wp-content/themes/quanbaike/go.php?url=aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vaW5zdGFsbC9saW51eC9kb2NrZXItY2UvdWJ1bnR1Lw==) | ✔              | ✔    | ✔               | ✔                   | ✔             |
 
-## 准备安装
+
+
+## Docker 安装
 
 ### 卸载旧版本
 
 ```bash
 apt-get remove docker docker-engine docker.io containerd runc
 ```
+
+
 
 ### 使用 APT 安装
 
@@ -43,10 +49,49 @@ add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/u
 apt-get update && apt-get install -y docker-ce
 ```
 
+
+
+### 使用脚本自动安装
+
+在测试或开发环境中 Docker 官方为了简化安装流程，提供了一套便捷的安装脚本，Ubuntu 系统上可以使用这套脚本安装：
+
+```bash
+$ curl -fsSL get.docker.com -o get-docker.sh
+# 可能会出现 404 错误，请移步下面的特别说明
+$ sudo sh get-docker.sh --mirror Aliyun
+```
+
+执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker CE 的 Edge 版本安装在系统中。
+
+> **特别说明**
+>
+> 2018 年 7 月 21 日，貌似阿里云这边在做调整，故导致 Docker 的 Aliyun 安装脚本不可用，是永久性还是临时性的尚不清楚。如果你已经按照之前的操作安装 Docker，请按以下步骤进行修复并重新安装
+>
+> - 如果已经使用了 Aliyun 脚本安装并成功的
+>   - 请先卸载 Docker，命令为：`apt-get autoremove docker-ce`
+>   - 删除 `/etc/apt/sources.list.d` 目录下的 `docker.list` 文件
+> - 使用 `AzureChinaCloud` 镜像脚本重新安装，命令为：`sudo sh get-docker.sh --mirror AzureChinaCloud
+
+接下来，执行以下命令来启动 Docker CE
+
+```bash
+$ sudo systemctl enable docker
+$ sudo systemctl start docker
+```
+
+Ubuntu 14.04 请使用以下命令启动：
+
+```bash
+$ sudo service docker start
+```
+
+
+
 ### 验证安装是否成功
 
 ```bash
-docker version
+#执行以下命令
+$ docker version
 
 # 输出如下
 Client:
@@ -68,7 +113,11 @@ Server: Docker Engine - Community
   Experimental:     false
 ```
 
+
+
 ## 配置 Docker 镜像加速器
+
+
 
 ### 阿里云加速器（推荐）
 
@@ -101,14 +150,15 @@ EOF
 
 
 # 重启 Docker
-systemctl daemon-reload
-systemctl restart docker
+$ systemctl daemon-reload
+$ systemctl restart docker
 ```
 
 ### 验证配置是否成功
 
 ```bash
-docker info
+#执行以下命令
+$ docker info
 
 # 输出如下
 Containers: 38
