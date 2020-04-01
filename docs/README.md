@@ -1,8 +1,8 @@
 ---
 home: true
 heroImage: /hero.png
-heroText: VuePress
-tagline: Vue-powered Static Site Generator
+heroText: 云顶轩
+tagline: 记录点滴足迹,留下美好时光
 actionText: Get Started →
 actionLink: /
 features:
@@ -12,5 +12,5 @@ features:
   details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
 - title: Performant
   details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
-footer: MIT Licensed | Copyright © 2019-present Ryu Zheng
+footer: Copyright © 2019 RyuZheng - All Rights Reserved
 ---
