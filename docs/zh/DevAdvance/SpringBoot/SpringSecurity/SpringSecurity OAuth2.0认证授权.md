@@ -1342,7 +1342,7 @@ protected void configure(HttpSecurity http) throws Exception {
 #### 4.1.1 Spring Boot 介绍
 
 Spring Boot是一套Spring的快速开发框架，基于Spring 4.0设计，使用Spring Boot开发可以避免一些繁琐的工程搭建和配置，同时它集成了大量的常用框架，快速导入依赖包，避免依赖包的冲突。基本上常用的开发框架都支持
-Spring Boot开发，例如：MyBatis、Dubbo等，Spring 家族更是如此，例如：Spring cloud、Spring mvc、Spring security等，使用Spring Boot开发可以大大得高生产率，所以Spring Boot的使用率非常高。
+Spring Boot开发，例如：MyBatis、Dubbo等，Spring 家族更是如此，例如：Spring cloud、Spring mvc、Spring security等，使用Spring Boot开发可以大大提高生产率，所以Spring Boot的使用率非常高。
 
 本章节讲解如何通过Spring Boot开发Spring Security应用，Spring Boot提供spring-boot-starter-security用于开
 发Spring Security应用。
@@ -1353,7 +1353,7 @@ Spring Boot开发，例如：MyBatis、Dubbo等，Spring 家族更是如此，�
 
 1）创建maven工程 security-spring-boot，工程结构如下：
 
-![img](./assets_security/Snipaste_2020-04-05_20-09-40.jpg)
+
 
 2）引入以下依赖：
 
@@ -2054,8 +2054,6 @@ Spring Security也内置一些投票者实现类如**RoleVoter**、**Authenticat
 
 
 
-
-
 ### 4.3 自定义认证
 
 Spring Security提供了非常好的认证扩展方法，比如：快速上手中将用户信息存储到内存中，实际开发中用户信息
@@ -2067,8 +2065,6 @@ Spring Security提供了非常好的认证扩展方法，比如：快速上手�
 Security的默认配置没有明确设定一个登录页面的URL，因此Spring Security会根据启用的功能自动生成一个登录
 页面URL，并使用默认URL处理登录的提交内容，登录后跳转的到默认URL等等。尽管自动生成的登录页面很方便
 快速启动和运行，但大多数应用程序都希望定义自己的登录页面。
-
-
 
 
 
@@ -2157,7 +2153,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 修改login.jsp
 
-```jsp
+```html
 <form action="login" method="post"> 
     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
    ...
