@@ -1353,7 +1353,7 @@ Spring Boot开发，例如：MyBatis、Dubbo等，Spring 家族更是如此，�
 
 1）创建maven工程 security-spring-boot，工程结构如下：
 
-
+![img](./assets_security/Snipaste_2020-04-05_20-09-40.jpg)
 
 2）引入以下依赖：
 
@@ -2059,18 +2059,21 @@ Spring Security也内置一些投票者实现类如**RoleVoter**、**Authenticat
 Spring Security提供了非常好的认证扩展方法，比如：快速上手中将用户信息存储到内存中，实际开发中用户信息
 通常在数据库，Spring security可以实现从数据库读取用户信息，Spring security还支持多种授权方法。
 
+
+
 #### 4.3.1 自定义登录页面
 
-在快速上手中，你可能会想知道登录页面从哪里来的？因为我们并没有提供任何的HTML或JSP文件。Spring
-Security的默认配置没有明确设定一个登录页面的URL，因此Spring Security会根据启用的功能自动生成一个登录
-页面URL，并使用默认URL处理登录的提交内容，登录后跳转的到默认URL等等。尽管自动生成的登录页面很方便
-快速启动和运行，但大多数应用程序都希望定义自己的登录页面。
+在快速上手中，你可能会想知道登录页面从哪里来的？因为我们并没有提供任何的HTML或JSP文件。
+
+Spring Security的默认配置没有明确设定一个登录页面的URL，因此Spring Security会根据启用的功能自动生成一个登录页面URL，并使用默认URL处理登录的提交内容，登录后跳转的到默认URL等等。尽管自动生成的登录页面很方便快速启动和运行，但大多数应用程序都希望定义自己的登录页面。
 
 
 
 ##### 4.3.1.1 认证页面
 
 将security-springmvc工程的login.jsp拷贝到security-springboot下，目录保持一致。
+
+![img](./assets_security/Snipaste_2020-04-06_20-48-50.jpg)
 
 
 
@@ -2079,11 +2082,11 @@ Security的默认配置没有明确设定一个登录页面的URL，因此Spring
 在`WebConfig.java`中配置认证页面地址：
 
 ```java
-// 默认Url根路径跳转到/login，此url为spring security提供
+//默认Url根路径跳转到/login，此url为Spring Security提供
 @Override
-public void addViewControllers(ViewControllerRegistry registry) {
-    registry.addViewController("/").setViewName("redirect:/login‐view");
-    registry.addViewController("/login‐view").setViewName("login");
+public void addViewControllers(ViewControllerRegistry registry) {
+    registry.addViewController("/").setViewName("redirect:/login-view");
+    registry.addViewController("/login-view").setViewName("login");
 }
 ```
 
@@ -2091,14 +2094,13 @@ public void addViewControllers(ViewControllerRegistry registry) {
 
 ##### 4.3.1.3 安全配置
 
-在WebSecurityConfig中配置表章登录信息：
+在 `WebSecurityConfig` 中配置表单登录信息：
 
 ```java
 // 配置安全拦截机制
 @Override
 protected void configure(HttpSecurity http) throws Exception {
-    http
-            .authorizeRequests()
+    http.authorizeRequests()
             .antMatchers("/r/**").authenticated()              
             .anyRequest().permitAll()                          
             .and()
@@ -2123,11 +2125,13 @@ protected void configure(HttpSecurity http) throws Exception {
 
 当用户没有认证时访问系统的资源会重定向到login-view页面
 
+![img](./assets_security/Snipaste_2020-04-06_21-00-00.jpg)
+
 
 
 输入账号和密码，点击登录,报错：
 
-
+![img](./assets_security/Snipaste_2020-04-06_20-59-35.jpg)
 
 **问题解决：**
 spring security为防止CSRF（Cross-site request forgery跨站请求伪造）的发生，限制了除了get以外的大多数方
@@ -2174,6 +2178,186 @@ protected void configure(HttpSecurity http) throws Exception {
 ##### 4.3.2.1 创建数据库
 
 创建user_db数据库
+
+```sql
+CREATE DATABASE spring_security CHARACTER SET 'utf8' COLLATE 'utf8_general_ci';
+```
+
+创建t_user表
+
+```sql
+CREATE TABLE `t_user`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `username` varchar(64) NOT NULL COMMENT '用户名',
+  `password` varchar(64) NOT NULL COMMENT '密码',
+  `fullname` varchar(255) NOT NULL COMMENT '用户姓名',
+  `mobile` varchar(32) NULL DEFAULT NULL COMMENT '手机号',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+```
+
+
+
+##### 4.3.2.2 代码实现
+
+1）定义dataSource
+
+在application.yml配置
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_security
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+```
+
+
+
+2）添加依赖
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+</dependency>
+```
+
+
+
+3）定义Dao
+
+定义模型类型，在 model包定义UserDto：
+
+```java
+@Data
+public class UserDto {
+    private String id;
+    private String username;
+    private String password;
+    private String fullname;
+    private String mobile;
+}
+```
+
+在Dao包定义UserDao：在Dao包定义UserDao：
+
+```java
+@Repository
+public class UserDao {
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
+    /**
+     * 根据账号查询用户信息
+     * @param username
+     * @return
+     */
+    public UserDto getUserByUsername(String username){
+        String sql = "select id, username, password, fullname, mobile from t_user where username = ?";
+        //连接数据库查询用户
+        List<UserDto> userDtoList = jdbcTemplate.query(sql, new Object[]{username}, new BeanPropertyRowMapper<>(UserDto.class));
+        if(userDtoList != null && userDtoList.size() == 1){
+            return userDtoList.get(0);
+        }
+        return null;
+    }
+
+}
+```
+
+
+
+##### 4.3.2.3 定义UserDetailService
+
+在service包下定义SpringDataUserDetailsService：
+
+```java
+@Service
+public class SpringDataUserDetailsService implements UserDetailsService {
+    @Autowired
+    UserDao userDao;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        //连接数据库查询用户信息
+        UserDto userDto = userDao.getUserByUsername(username);
+        //如果用户查不到，返回null，由DaoAuthenticationProvider来抛异常
+        if(userDto == null){
+            return null;
+        }
+        //返回用户信息
+        UserDetails userDetails = User.withUsername(userDto.getUsername()).password(userDto.getPassword()).authorities("p1").build();
+        return userDetails;
+    }
+
+}
+```
+
+
+
+##### 4.3.2.4 测试
+
+输入账号和密码请求认证，跟踪代码。
+
+
+
+##### 4.3.2.5 使用BCryptPasswordEncoder
+
+按照我们前边讲的PasswordEncoder的使用方法，使用BCryptPasswordEncoder需要完成如下工作：
+
+1、在安全配置类中定义BCryptPasswordEncoder
+
+```java
+@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+```
+
+2、UserDetails中的密码存储BCrypt格式
+
+前边实现了从数据库查询用户信息，所以数据库中的密码应该存储BCrypt格式
+
+![img](./assets_security/Snipaste_2020-04-06_21-59-39.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
