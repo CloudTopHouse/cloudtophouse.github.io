@@ -2337,19 +2337,242 @@ public PasswordEncoder passwordEncoder() {
 
 
 
+### 4.4 会话
+
+用户认证通过后，为了避免用户的每次操作都进行认证可将用户的信息保存在会话中。Spring Security提供会话管
+理，认证通过后将身份信息放入**SecurityContextHolder**上下文，SecurityContext与当前线程进行绑定，方便获取用户身份。
+
+#### 4.4.1.获取用户身份
+
+编写LoginController，实现/r/r1、/r/r2的测试资源，并修改loginSuccess方法。
+
+注意`getUsername`方法，SpringSecurity获取当前登录用户信息的方法为 `SecurityContextHolder.getContext().getAuthentication()`
+
+```java
+
+```
+
+**测试**
+1, 登录前访问资源
+2, 被重定向至登录页面。
+3, 登录后访问资源
+
+成功访问资源，如下：
+
+![img](./assets_security/Snipaste_2020-04-07_21-40-19.jpg)
+
+
+
+#### 4.4.2会话控制
+
+我们可以通过以下选项准确控制会话何时创建以及Spring Security如何与之交互：
+
+| 机制       | 描述                                                         |
+| ---------- | ------------------------------------------------------------ |
+| always     | 如果没有session存在就创建一个                                |
+| ifRequired | 如果需要就创建一个Session（默认）登录时                      |
+| never      | SpringSecurity 将不会创建Session，但是如果应用中其他地方创建了Session，那么Spring Security将会使用它。 |
+| stateless  | SpringSecurity将绝对不会创建Session，也不使用Session         |
+
+通过以下配置方式 (`WebSecurityConfig中配置`) 对该选项进行配置：
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    http.sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+}
+```
+
+默认情况下，Spring Security会为每个登录成功的用户会新建一个Session，就是ifRequired 。
+
+若选用**never**，则指示Spring Security对登录成功的用户不创建Session了，但若你的应用程序在某地方新建了
+session，那么Spring Security会用它的。
+
+若使用**stateless**，则说明Spring Security对登录成功的用户不会创建Session了，你的应用程序也不会允许新建session。并且它不使用cookie，所以每个请求都需要重新进行身份验证。这种无状态架构适用于REST API及其无状态认证机制。
 
 
 
 
 
+**会话超时**
+可以在servlet容器中设置Session的超时时间，如下设置Session有效期为3600s；
+
+spring boot 配置文件：
+
+```yaml
+server:
+  servlet:
+    session:
+      timeout: 3600s
+```
+
+session超时之后，可以通过Spring Security 设置跳转的路径。
+
+```java
+http.sessionManagement()
+    .expiredUrl("/login‐view?error=EXPIRED_SESSION")
+    .invalidSessionUrl("/login‐view?error=INVALID_SESSION");
+```
+
+expired指session过期，invalidSession指传入的sessionid无效。
+
+
+
+**安全会话cookie**
+
+我们可以使用httpOnly和secure标签来保护我们的会话cookie：
+
+- httpOnly ：如果为true，那么浏览器脚本将无法访问cookie
+- secure ：如果为true，则cookie将仅通过HTTPS连接发送
+
+spring boot 配置文件：
+
+```yaml
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        secure: true
+```
+
+
+
+### 4.5 退出
+
+Spring security默认实现了logout退出，访问/logout，果然不出所料，退出功能Spring也替我们做好了。
+
+![img](./assets_security/Snipaste_2020-04-07_22-00-32.jpg)
+
+点击“Log Out”退出 成功。
+退出 后访问其它url判断是否成功退出。
+
+这里也可以自定义退出成功的页面：
+在WebSecurityConfig的protected void configure(HttpSecurity http)中配置：
+
+```java
+.and() 
+.logout()
+.logoutUrl("/logout")
+.logoutSuccessUrl("/login‐view?logout");
+```
+
+当退出操作出发时，将发生：
+
+- 使 HTTP Session 无效
+- 清除 `SecurityContextHolder`
+- 跳转到 `/login -view?logout`
+
+但是，类似于配置登录功能，咱们可以进一步自定义退出功能：
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    http
+           .authorizeRequests()
+       //...      
+           .and()
+           .logout()                                                (1)
+           .logoutUrl("/logout")                                    (2)
+           .logoutSuccessUrl("/login‐view?logout")                  (3)
+           .logoutSuccessHandler(logoutSuccessHandler)              (4)
+           .addLogoutHandler(logoutHandler)                         (5)      
+           .invalidateHttpSession(true);                            (6)
+               
+}
+```
+
+（1）提供系统退出支持，使用 `WebSecurityConfigurerAdapter` 会自动被应用
+（2）设置触发退出操作的URL (默认是 `/logout` ).
+（3）退出之后跳转的URL。默认是 `/login?logout` 。
+（4）定制的  `LogoutSuccessHandler` ，用于实现用户退出成功时的处理。如果指定了这个选项那么`logoutSuccessUrl()` 的设置会被忽略。
+（5）添加一个 `LogoutHandler` ，用于实现用户退出时的清理工作.默认 `SecurityContextLogoutHandler` 会被添加为最后一个 `LogoutHandler` 。
+（6）指定是否在退出时让 `HttpSession` 无效。 默认设置为 true。
+
+
+
+**注意：如果让logout在GET请求下生效，必须关闭防止CSRF攻击csrf().disable()。如果开启了CSRF，必须使用**
+**post方式请求/logout**
+
+
+
+**logoutHandler：**
+一般来说， LogoutHandler 的实现类被用来执行必要的清理，因而他们不应该抛出异常。
+
+下面是Spring Security提供的一些实现：
+
+- PersistentTokenBasedRememberMeServices 基于持久化token的RememberMe功能的相关清理
+- TokenBasedRememberMeService  基于token的RememberMe功能的相关清理
+- CookieClearingLogoutHandler 退出时Cookie的相关清理
+- CsrfLogoutHandler 负责在退出时移除csrfToken
+- SecurityContextLogoutHandler 退出时SecurityContext的相关清理
+
+链式API提供了调用相应的 `LogoutHandler` 实现的快捷方式，比如deleteCookies()。
 
 
 
 
 
+### 4.6 授权
+
+#### 4.6.1 概述
+
+授权的方式包括 web授权和方法授权，web授权是通过 url拦截进行授权，方法授权是通过 方法拦截进行授权。他
+们都会调用accessDecisionManager进行授权决策，若为web授权则拦截器为FilterSecurityInterceptor；若为方
+法授权则拦截器为MethodSecurityInterceptor。如果同时通过web授权和方法授权则先执行web授权，再执行方
+法授权，最后决策通过，则允许访问资源，否则将禁止访问。
+
+类关系如下：
+
+![img](./assets_security/Snipaste_2020-04-07_22-08-29.jpg)
 
 
 
+#### 4.6.2.准备环境
+
+##### 4.6.2.1 数据库环境
+
+在t_user数据库创建如下表：
+
+角色表：
+
+
+
+
+
+用户角色关系表：
+
+
+
+权限表：
+
+
+
+角色权限关系表：
+
+
+
+##### 4.6.2.2 修改UserDetailService
+
+1、修改dao接口
+在UserDao中添加：
+
+
+
+
+
+2、修改UserDetailService
+实现从数据库读取权限
+
+
+
+
+
+#### 4.6.3.web授权
+
+在上面例子中我们完成了认证拦截，并对/r/**下的某些资源进行简单的授权保护，但是我们想进行灵活的授权控
+制该怎么做呢？通过给 http.authorizeRequests() 添加多个子节点来定制需求到我们的URL，如下代码：
 
 
 
