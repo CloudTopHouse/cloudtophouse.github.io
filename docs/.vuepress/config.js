@@ -135,7 +135,7 @@ module.exports = {
 				        {
 				        	title: 'Java基础',
 				        	children: [
-				              '/zh/DevBasic/Java/other/Lombok 学习指南',
+				              '/zh/DevBasic/Java/basic/Java8 日期处理',
 				          	]
 				        },
 				        {
