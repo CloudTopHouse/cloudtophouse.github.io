@@ -157,6 +157,7 @@ module.exports = {
 					          '/zh/DevBasic/Git/Git/TortoiseGit 简化 Git 操作',
 					          '/zh/DevBasic/Git/Git/快速搭建自己的Git仓库',
 					          '/zh/DevBasic/Git/Git/IDEA中的Git操作',
+					          '/zh/DevBasic/Git/Git/版本管理之Git和SVN',
 				          	]
 				        },
 				        {
