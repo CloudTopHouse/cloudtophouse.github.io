@@ -158,6 +158,7 @@ module.exports = {
 					          '/zh/DevBasic/Git/Git/快速搭建自己的Git仓库',
 					          '/zh/DevBasic/Git/Git/IDEA中的Git操作',
 					          '/zh/DevBasic/Git/Git/版本管理之Git和SVN',
+					          '/zh/DevBasic/Git/Git/Git 常用命令',
 				          	]
 				        },
 				        {
