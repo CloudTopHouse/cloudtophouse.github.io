@@ -6,7 +6,7 @@
 
 ## 仓库
 
-```
+```shell
 # 在当前目录新建一个Git代码库
 $ git init
 
@@ -21,7 +21,7 @@ $ git clone [url]
 
 ## 配置
 
-```
+```shell
 # 显示当前的Git配置
 $ git config --list
 
@@ -37,7 +37,7 @@ $ git config [--global] user.email "[email address]"
 
 ## 增加/删除文件
 
-```
+```shell
 # 添加指定文件到暂存区
 $ git add [file1] [file2] ...
 
@@ -65,7 +65,7 @@ $ git mv [file-original] [file-renamed]
 
 ## 代码提交
 
-```
+```shell
 # 提交暂存区到仓库区
 $ git commit -m [message]
 
@@ -90,7 +90,7 @@ $ git commit --amend [file1] [file2] ...
 
 ## 分支
 
-```
+```shell
 # 列出所有本地分支
 $ git branch
 
@@ -139,7 +139,7 @@ $ git branch -dr [remote/branch]
 
 ## 标签
 
-```
+```shell
 # 列出所有tag
 $ git tag
 
@@ -172,7 +172,7 @@ $ git checkout -b [branch] [tag]
 
 ## 查看信息
 
-```
+```shell
 # 显示有变更的文件
 $ git status
 
@@ -239,7 +239,7 @@ $ git reflog
 
 ## 远程同步
 
-```
+```shell
 # 下载远程仓库的所有变动
 $ git fetch [remote]
 
@@ -269,7 +269,7 @@ $ git push [remote] --all
 
 ## 撤销
 
-```
+```shell
 # 恢复暂存区的指定文件到工作区
 $ git checkout [file]
 
@@ -307,7 +307,7 @@ $ git stash pop
 
 ## 其他
 
-```
+```shell
 # 生成一个可供发布的压缩包
 $ git archive
 ```
