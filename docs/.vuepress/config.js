@@ -136,6 +136,7 @@ module.exports = {
 				        	title: 'Java基础',
 				        	children: [
 				              '/zh/DevBasic/Java/basic/Java8 日期处理',
+				              '/zh/DevBasic/Java/basic/Java中的BigDecimal',
 				          	]
 				        },
 				        {
