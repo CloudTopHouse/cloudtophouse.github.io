@@ -299,8 +299,8 @@ public interface StudentMapper {
      * @return
      */
     @Mappings({
-            @Mapping(source = "schoolPO.name", target = "schoolName"),
-            @Mapping(source = "studentPO.name", target = "studentName")
+            @Mapping(source = "school.name", target = "schoolName"),
+            @Mapping(source = "student.name", target = "studentName")
     })
     SchoolStudentVO mergeVo(School school, Student student);
 }
