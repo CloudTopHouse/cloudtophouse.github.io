@@ -362,6 +362,7 @@ module.exports = {
 				              '/zh/DevOthers/Chapter1/05-使用Gitbook+Markdown编写电子文档',
 				              '/zh/DevOthers/Chapter1/06-VuePress与Github Pages搭配完成线上站点',
 				              '/zh/DevOthers/Chapter1/IntelliJ IDEA 快捷键说明大全-Windows',
+				              '/zh/DevOthers/Chapter1/Linux上kdevtmpfsi挖矿木马清除处理',
 				          	]
 				        },
 				        {
