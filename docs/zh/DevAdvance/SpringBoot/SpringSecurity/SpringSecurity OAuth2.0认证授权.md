@@ -2446,7 +2446,7 @@ Spring security默认实现了logout退出，访问/logout，果然不出所料�
 ![img](./assets_security/Snipaste_2020-04-07_22-00-32.jpg)
 
 点击“Log Out”退出 成功。
-退出 后访问其它url判断是否成功退出。
+退出后访问其它url判断是否成功退出。
 
 这里也可以自定义退出成功的页面：
 在WebSecurityConfig的protected void configure(HttpSecurity http)中配置：
